@@ -1,0 +1,245 @@
+/* reset */
+body {
+    margin: 1.5em;
+    font-family: 'poppins', sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+
+/* background */
+.hero-img {
+    background-image: url('assets/shoe.jpg');
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position-x: 20%;
+    background-position-y: 20%;
+    z-index: -1;
+    animation: intro 2s forwards;
+}
+
+/* header section */
+a {
+    color: white;
+    text-decoration: none;
+}
+.logo {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+.menu {
+    width: 2.2em;
+    cursor: pointer;
+}
+.menu path {
+    fill: white;
+    stroke: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Hero section */
+.hero {
+    color: white;
+    height: 90vh;
+    position: relative;
+    animation: text 1.2s ease-in-out forwards;
+    opacity: 0;
+}
+.hero h1 {
+    font-size: 3rem;
+    line-height: 3.5rem;
+    margin-top: 2em;
+}
+.hero p {
+    font-size: 1rem;
+}
+
+.down-arrow {
+    width: 1em;
+    position: absolute;
+    bottom: 5em;
+    animation: arrow 1s alternate-reverse infinite;
+}
+.down-arrow path {
+    fill: white;
+    stroke: white;
+}
+
+/* Showcase */
+.row img {
+    width: 100%;
+    height: 15em;
+    object-fit: cover;
+}
+
+.title {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* Menu section */
+nav {
+    width: 50%;
+    height: 100vh;
+    background-color: white;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    transform: translateX(100%);
+    transition: transform .5s ease-in-out;
+
+}
+
+.open-nav {
+    transform: translateX(0);
+}
+
+.close {
+    width: 2.5em;
+    float: right;
+    margin: 1.5em;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 6em;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+ul li a {
+    color: black;
+    font-size: 1.25rem;
+    padding: .75em 2em;
+    display: block;
+}
+
+ul li a:hover {
+    background-color: #ddd;
+}
+
+/* Animation section */
+@keyframes intro {
+    from {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    to {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+@keyframes text {
+    from {
+        transform: translateY(-120px);
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes arrow {
+    from {
+        transform: translateY(-30px);
+    }
+    to {
+        transform: translateY(0px);
+    }
+}
+
+/* Responsive section */
+@media screen and (min-width: 662px) {
+    body {
+        margin: 1.5em 5em;
+    }
+}
+
+@media screen and (min-width: 920px) {
+    .hero-img {
+        left: unset;
+        right: 0;
+        width: 50%;
+        height: 45.5em;
+    }
+    .logo {
+        color: black;
+    }
+    .color {
+        color: red;
+    }
+    .hero {
+        color: black;
+        width: 50%;
+        padding-right: 4em;
+    }
+
+    .menu {
+        display: none;
+    }
+    .close{
+        display: none;
+    }
+    nav {
+        position: unset;
+        background-color: transparent;
+        height: auto;
+        width: auto;
+        transform: translateX(0);
+    }
+    ul {
+        margin: 0;
+        display: flex;
+    }
+    ul li a {
+        font-size: .9rem;
+        color: white;
+        padding: .5em 1.5em;
+    }
+    ul li a:hover {
+        background: none;
+        text-decoration: underline;
+    }
+    .down-arrow path {
+        fill: black;
+        stroke: black;
+    }
+    .down-arrow {
+        bottom: unset;
+        margin-top: 1em;
+    }
+
+    .row {
+        display: grid;
+        grid-template-columns: repeat(2, 400px);
+        gap: 3em;
+        margin-bottom: 3em;
+        justify-content: center;
+    }
+    .right {
+        text-align: right;
+    }
+    .rtl {
+        grid-template-areas: 'left right';
+    }
+    .rtl .col-2 {
+      grid-area: left;  
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .wrapper {
+        width: 80%;
+        margin: auto;
+    }
+}
+
